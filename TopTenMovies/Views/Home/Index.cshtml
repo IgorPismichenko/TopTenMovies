@@ -1,8 +1,16 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+﻿<div>
+    <h3>Топ 10 Фільмів</h3>
+    @foreach (var m in ViewBag.Movies)
+    {
+        <div id="main">
+            <div id="poster"><img src=@m.Poster /></div>
+            <div id="info">
+                <h2>@m.Title</h2>
+                <label>Режисер: @m.Director</label><br />
+                <label>Жанр: @m.Genre</label><br />
+                <label>Рік: @m.Year</label><br />
+                <p>Опис: @m.Description</p>
+            </div>
+        </div>
+    }
 </div>

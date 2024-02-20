@@ -6,27 +6,17 @@ namespace TopTenMovies.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        MoviesContext db;
+        public HomeController(MoviesContext context)
         {
-            _logger = logger;
+            db = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            IEnumerable<Movie> movies = await Task.Run(() => db.Movies);
+            ViewBag.Movies = movies;
             return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
