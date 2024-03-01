@@ -1,0 +1,73 @@
+﻿@model TopTenMovies.Models.Movie
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="text-align:center; color: #A52A2A">Add new movie</h1>
+<hr />
+<div id="main">
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Title" class="control-label"></label>
+            <input asp-for="Title" class="form-control" name="Title" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Director" class="control-label"></label>
+            <input asp-for="Director" class="form-control" name="Director" />
+            <span asp-validation-for="Director" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Genre" class="control-label"></label>
+            <input asp-for="Genre" class="form-control" name="Genre" />
+            <span asp-validation-for="Genre" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Year" class="control-label"></label>
+            <input asp-for="Year" class="form-control" name="Year" />
+            <span asp-validation-for="Year" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Country" class="control-label"></label>
+            <input asp-for="Country" class="form-control" name="Country" />
+            <span asp-validation-for="Country" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Budget" class="control-label"></label>
+            <input asp-for="Budget" class="form-control" name="Budget" />
+            <span asp-validation-for="Budget" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Box_Office" class="control-label"></label>
+            <input asp-for="Box_Office" class="form-control" name="Box_Office" />
+            <span asp-validation-for="Box_Office" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Duration" class="control-label"></label>
+            <input asp-for="Duration" class="form-control" name="Duration" />
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Poster" class="control-label"></label><br />
+            <input type="file" name="uploadedFile" />
+            <span asp-validation-for="Poster" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="control-label"></label>
+            <textarea asp-for="Description" class="form-control" style="width:800px" name="Description"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input id="button" type="submit" value="Add" />
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

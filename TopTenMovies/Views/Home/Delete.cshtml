@@ -1,0 +1,28 @@
+﻿@model TopTenMovies.Models.Movie
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 style="width:600px">Are you sure you want to delete this?</h3>
+<div id="main">
+    <div id="poster">
+        <img id="details" style="width:500px; height:700px" src=@Model.Poster /><br />
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" id="button" /> |
+            <a asp-action="Index">Back to List</a>
+        </form>
+    </div>
+    <div id="info">
+        <<h2>@Model.Title</h2>
+        <label id="create-label">Країна: @Model.Country</label><br />
+        <label id="create-label">Режисер: @Model.Director</label><br />
+        <label id="create-label">Жанр: @Model.Genre</label><br />
+        <label id="create-label">Рік: @Model.Year</label><br />
+        <label id="create-label">Бюджет: @Model.Budget</label><br />
+        <label id="create-label">Касові збори: @Model.Box_Office</label><br />
+        <label id="create-label">Тривалість: @Model.Duration</label><br />
+        <p>Опис: @Model.Description</p>
+    </div>

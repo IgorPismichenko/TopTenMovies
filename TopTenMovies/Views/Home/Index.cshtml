@@ -1,14 +1,31 @@
-﻿<div>
-    <h3>Топ 10 Фільмів</h3>
-    @foreach (var m in ViewBag.Movies)
+﻿@model IEnumerable<TopTenMovies.Models.Movie>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <div id="header-container">
+        <h3>Топ Фільмів</h3>
+        <a id="create" asp-action="Create">Add new</a>
+    </div>
+    @foreach (var m in Model)
     {
         <div id="main">
-            <div id="poster"><img src=@m.Poster /></div>
+            <div id="poster">
+                <img id="image" src=@m.Poster /><br /><br />
+                <a asp-action="Edit" asp-route-id="@m.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@m.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@m.Id">Delete</a>
+                <hr />
+             </div>
             <div id="info">
                 <h2>@m.Title</h2>
-                <label>Режисер: @m.Director</label><br />
-                <label>Жанр: @m.Genre</label><br />
-                <label>Рік: @m.Year</label><br />
+                <label id="create-label">Режисер: @m.Director</label><br />
+                <label id="create-label">Жанр: @m.Genre</label><br />
+                <label id="create-label">Рік: @m.Year</label><br />
                 <p>Опис: @m.Description</p>
             </div>
         </div>

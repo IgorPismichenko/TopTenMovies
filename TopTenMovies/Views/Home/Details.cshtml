@@ -1,0 +1,25 @@
+﻿@model TopTenMovies.Models.Movie
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="main">
+    <div id="poster">
+        <img id="details" src=@Model.Poster /><br/>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
+    <div id="info">
+        <<h2>@Model.Title</h2>
+        <label id="create-label">Країна: @Model.Country</label><br />
+        <label id="create-label">Режисер: @Model.Director</label><br />
+        <label id="create-label">Жанр: @Model.Genre</label><br />
+        <label id="create-label">Рік: @Model.Year</label><br />
+        <label id="create-label">Бюджет: @Model.Budget</label><br />
+        <label id="create-label">Касові збори: @Model.Box_Office</label><br />
+        <label id="create-label">Тривалість: @Model.Duration</label><br />
+        <p>Опис: @Model.Description</p>
+    </div>
+</div>
